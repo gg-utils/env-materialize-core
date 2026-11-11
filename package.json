@@ -1,6 +1,6 @@
 {
   "name": "@gg-utils/env-materialize-core",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Product-neutral env materialization primitives for parsing and rendering env files.",
   "license": "MIT",
   "type": "module",
@@ -16,7 +16,11 @@
       "types": "./dist/env-document.d.ts",
       "default": "./dist/env-document.js"
     },
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./key-names": {
+      "types": "./dist/key-names.d.ts",
+      "default": "./dist/key-names.js"
+    }
   },
   "files": [
     "dist/",
