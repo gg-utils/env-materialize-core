@@ -8,7 +8,7 @@ managed keys, and write a normalized result without losing user-owned content.
 ## Install
 
 ```bash
-npm install @gg-utils/env-materialize-core@git+https://github.com/gg-utils/env-materialize-core.git#main
+npm install @gg-utils/env-materialize-core@git+https://github.com/gg-utils/env-materialize-core.git#v0.2.0
 ```
 
 Pin a commit for reproducible consumers:
@@ -16,7 +16,7 @@ Pin a commit for reproducible consumers:
 ```json
 {
   "dependencies": {
-    "@gg-utils/env-materialize-core": "git+https://github.com/gg-utils/env-materialize-core.git#62826e0"
+    "@gg-utils/env-materialize-core": "git+https://github.com/gg-utils/env-materialize-core.git#v0.2.0"
   }
 }
 ```
@@ -79,9 +79,11 @@ npm test
 npm run build
 ```
 
-The current scripts come from a source-first workspace and expect TypeScript tooling to be available
-from the parent workspace. Standalone package-local dev dependencies can be added later without
-changing the public API.
+Use `npm ci` to install the pinned development tools. `npm run lint` and `npm run check:dist` verify lint and committed build output.
+
+## Use from another repository
+
+Requires Node `>=22.0.0 <27`. Install the tagged dependency shown above; built ESM JavaScript and declarations are included, with no consumer build step.
 
 ## Layout
 

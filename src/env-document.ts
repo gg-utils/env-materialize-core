@@ -210,7 +210,7 @@ export function EnvMaterialize_renderDocument(options: {
   if (extraKeys.length > 0) {
     if (
       renderedLines.length > 0 &&
-      renderedLines[renderedLines.length - 1].trim().length > 0
+      (renderedLines.at(-1)?.trim().length ?? 0) > 0
     ) {
       renderedLines.push("");
     }
