@@ -25,7 +25,7 @@ import {
   EnvMaterialize_renderDocument,
 } from "./env-document.js";
 
-test("EnvMaterialize_parseEnvDocument preserves comments and last assignment values", () => {
+void test("EnvMaterialize_parseEnvDocument preserves comments and last assignment values", () => {
   const document = EnvMaterialize_parseEnvDocument(
     "# comment\nexport FOO=one\nBAR='two'\nFOO=three\n",
   );
@@ -35,7 +35,7 @@ test("EnvMaterialize_parseEnvDocument preserves comments and last assignment val
   assert.deepEqual([...document.assignmentKeys], ["FOO", "BAR"]);
 });
 
-test("EnvMaterialize_renderDocument updates last assignments and appends new keys", () => {
+void test("EnvMaterialize_renderDocument updates last assignments and appends new keys", () => {
   const document = EnvMaterialize_parseEnvDocument("# keep\nFOO=one\nFOO=two\n");
 
   assert.equal(
@@ -50,7 +50,7 @@ test("EnvMaterialize_renderDocument updates last assignments and appends new key
   );
 });
 
-test("EnvMaterialize_normalizeRenderedContent guarantees trailing newline", () => {
+void test("EnvMaterialize_normalizeRenderedContent guarantees trailing newline", () => {
   assert.equal(EnvMaterialize_normalizeRenderedContent("A=1"), "A=1\n");
   assert.equal(EnvMaterialize_normalizeRenderedContent("A=1\n"), "A=1\n");
 });

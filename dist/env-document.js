@@ -150,7 +150,7 @@ export function EnvMaterialize_renderDocument(options) {
         .sort();
     if (extraKeys.length > 0) {
         if (renderedLines.length > 0 &&
-            renderedLines[renderedLines.length - 1].trim().length > 0) {
+            (renderedLines.at(-1)?.trim().length ?? 0) > 0) {
             renderedLines.push("");
         }
         for (const key of extraKeys) {
@@ -174,4 +174,3 @@ export function EnvMaterialize_renderDocument(options) {
 export function EnvMaterialize_normalizeRenderedContent(content) {
     return content.endsWith("\n") ? content : `${content}\n`;
 }
-//# sourceMappingURL=env-document.js.map
