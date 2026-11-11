@@ -22,3 +22,5 @@
  */
 
 export * from "./env-document.js";
+
+export * from "./key-names.js";

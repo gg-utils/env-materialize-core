@@ -21,3 +21,4 @@
  * @documentation reviewed=2026-05-22 standard=FILE_OVERVIEW_STANDARDS_TYPESCRIPT@3
  */
 export * from "./env-document.js";
+export * from "./key-names.js";

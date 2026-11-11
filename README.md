@@ -8,7 +8,7 @@ managed keys, and write a normalized result without losing user-owned content.
 ## Install
 
 ```bash
-npm install @gg-utils/env-materialize-core@git+https://github.com/gg-utils/env-materialize-core.git#v0.2.0
+npm install @gg-utils/env-materialize-core@git+https://github.com/gg-utils/env-materialize-core.git#v0.3.0
 ```
 
 Pin a commit for reproducible consumers:
@@ -16,7 +16,7 @@ Pin a commit for reproducible consumers:
 ```json
 {
   "dependencies": {
-    "@gg-utils/env-materialize-core": "git+https://github.com/gg-utils/env-materialize-core.git#v0.2.0"
+    "@gg-utils/env-materialize-core": "git+https://github.com/gg-utils/env-materialize-core.git#v0.3.0"
   }
 }
 ```
@@ -102,3 +102,11 @@ Requires Node `>=22.0.0 <27`. Install the tagged dependency shown above; built E
 - This package does not decide which files or keys should be managed.
 - It performs synchronous file reads only through `EnvMaterialize_readEnvDocument`.
 - It does not load secrets, infer environment profiles, or apply app-specific defaults.
+
+## Key names without values
+
+`EnvMaterialize_parseKeyNames(bytes: Iterable<number>): string[]` scans dotenv bytes and
+returns sorted unique names. It constructs no value strings. Comments and blank rows are ignored;
+optional `export`, quoted multiline values, CRLF and escaped double quotes are supported.
+Invalid rows are ignored and an unfinished quote consumes the remaining input. The caller owns
+byte acquisition; use the kit's `checkKeys` API for sanitized filesystem errors and comparison.
